@@ -16,38 +16,35 @@
     }
     .container { max-width: 640px; margin: 0 auto; padding: 0 24px; }
 
-    /* Header */
     .header { text-align: center; padding: 80px 0 16px; }
     .header img { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 16px; }
     .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
     .header h1 span { color: #dcf900; }
     .header p { font-size: 14px; color: #71717a; }
 
-    /* Changelog */
-    .changelog { padding: 32px 0 80px; display: flex; flex-direction: column; gap: 16px; }
-    .entry {
-      background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 20px;
+    .version-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 100px;
+      background: rgba(220,249,0,0.08); border: 1px solid rgba(220,249,0,0.15);
+      font-size: 12px; font-weight: 600; color: #dcf900; font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 24px;
     }
-    .entry-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-    .tag {
-      padding: 2px 8px; border-radius: 6px; font-size: 10px; font-weight: 600;
-      font-family: 'JetBrains Mono', monospace; text-transform: uppercase;
+
+    .changelog-card {
+      background: #111; border: 1px solid #1e1e1e; border-radius: 14px; padding: 28px; margin-bottom: 32px;
     }
-    .tag-new { background: rgba(147,130,255,0.1); color: #9382ff; }
-    .tag-feature { background: rgba(220,249,0,0.1); color: #dcf900; }
-    .tag-improvement { background: rgba(96,165,250,0.1); color: #60a5fa; }
-    .tag-fix { background: rgba(255,95,115,0.1); color: #ff5f73; }
-    .entry-date { font-size: 11px; color: #52525b; font-family: 'JetBrains Mono', monospace; }
-    .entry-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .entry-desc { font-size: 13px; color: #a1a1aa; line-height: 1.6; }
-    .entry-items { list-style: none; margin-top: 10px; }
-    .entry-items li {
-      font-size: 13px; color: #a1a1aa; padding: 2px 0; display: flex; gap: 8px;
+    .changelog-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
+    .changelog-body { font-size: 13px; color: #a1a1aa; line-height: 1.8; white-space: pre-line; }
+    .changelog-body strong { color: #f5f5f5; }
+
+    .got-btn {
+      display: block; width: 100%; padding: 12px; border-radius: 10px; border: none;
+      background: #dcf900; color: #000; font-size: 14px; font-weight: 700; cursor: pointer;
+      text-align: center; text-decoration: none; transition: opacity 0.2s;
     }
-    .entry-items li::before { content: '→'; color: #dcf900; font-weight: 600; flex-shrink: 0; }
+    .got-btn:hover { opacity: 0.9; }
+
     .empty { text-align: center; padding: 40px 0; color: #52525b; font-size: 13px; }
 
-    /* Footer */
     .footer { border-top: 1px solid #1e1e1e; padding: 24px 0; text-align: center; font-size: 11px; color: #52525b; }
     .footer a { color: #71717a; text-decoration: none; }
     .footer a:hover { color: #f5f5f5; }
@@ -58,10 +55,10 @@
     <header class="header">
       <img src="https://quickbar.pro/images/logo.png" alt="QuickBar Pro" />
       <h1>What's <span>New</span></h1>
-      <p>Updates, features, and improvements.</p>
+      <p>Latest updates and changelog.</p>
     </header>
 
-    <div class="changelog" id="changelog"></div>
+    <div id="content"></div>
 
     <footer class="footer">
       <p>&copy; 2026 Bar Pro · <a href="https://quickbar.pro">quickbar.pro</a></p>
@@ -69,29 +66,32 @@
   </div>
 
   <script>
-    fetch('updates.json')
+    fetch('changelog.json')
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        var el = document.getElementById('changelog');
-        if (!data.updates || data.updates.length === 0) {
+        var el = document.getElementById('content');
+        if (!data.changelog) {
           el.innerHTML = '<div class="empty">No updates yet.</div>';
           return;
         }
-        el.innerHTML = data.updates.map(function(u) {
-          var items = u.items ? u.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') : '';
-          return '<div class="entry">' +
-            '<div class="entry-top">' +
-              '<span class="tag tag-' + u.tag + '">' + u.tag + '</span>' +
-              '<span class="entry-date">' + u.date + '</span>' +
-            '</div>' +
-            '<div class="entry-title">' + u.title + '</div>' +
-            '<div class="entry-desc">' + u.description + '</div>' +
-            (items ? '<ul class="entry-items">' + items + '</ul>' : '') +
-          '</div>';
-        }).join('');
+
+        var formatted = data.changelog
+          .replace(/^🚀 (.+)$/gm, '<strong style="color:#dcf900;">🚀 $1</strong>')
+          .replace(/^🛠️ (.+)$/gm, '<strong style="color:#60a5fa;">🛠️ $1</strong>')
+          .replace(/^🐛 (.+)$/gm, '<strong style="color:#ff5f73;">🐛 $1</strong>')
+          .replace(/^➕ (.+)$/gm, '<strong style="color:#9382ff;">➕ $1</strong>')
+          .replace(/^- (.+)$/gm, '  • $1');
+
+        el.innerHTML =
+          '<div class="version-badge">v' + data.version + '</div>' +
+          '<div class="changelog-card">' +
+            '<div class="changelog-title">' + data.title + '</div>' +
+            '<div class="changelog-body">' + formatted + '</div>' +
+          '</div>' +
+          '<a href="' + (data.btnLink || '#') + '" target="_blank" class="got-btn">' + (data.btnText || 'Got it!') + '</a>';
       })
       .catch(function() {
-        document.getElementById('changelog').innerHTML = '<div class="empty">Failed to load updates.</div>';
+        document.getElementById('content').innerHTML = '<div class="empty">Failed to load changelog.</div>';
       });
   </script>
 </body>

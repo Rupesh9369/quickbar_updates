@@ -1,0 +1,8 @@
+{
+  "id": "v1.0.1",
+  "version": "1.0.1",
+  "title": "What's New in QuickBar Pro v1.0.1",
+  "changelog": "🚀 New Features\n\n- Event Themes: 13 themes including New Year, Christmas, Halloween, Valentine, Diwali, Cyber Monday, Easter, Summer, Ocean, Neon, Midnight\n- One-click import from Storyboard to AE Timeline\n- YouTube search with page scraping fallback\n- Floating import button on canvas\n\n🛠️ Improvements\n\n- Performance: Dirty flag render loop (90% less idle CPU)\n- Performance: Canvas shadows only for selected objects\n- Performance: Removed backdrop-filter from non-essential elements\n- Modern glass-morphism UI for downloader tab\n- Better theme system with full background/border changes\n\n🐛 Bug Fixes\n\n- Fixed YouTube Error 153 in storyboard preview\n- Fixed YouTube search HTTP 403 error\n- Fixed tab-downloader CSS loading issue\n- Fixed CSS syntax errors\n- Removed PDF support from storyboard (images/video/audio only)\n\n➕ Removed\n\n- Relinker and Depth buttons removed from overview\n- Flip H/V, Undo, Redo, Preview removed from graph toolbar\n- YouTube video support removed from storyboard canvas\n- PDF support removed from storyboard",
+  "btnText": "Got it!",
+  "btnLink": "https://github.com/Rupesh9369/QuickBarPro/releases/tag/v1.0.1"
+}

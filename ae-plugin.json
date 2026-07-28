@@ -1,0 +1,99 @@
+{
+  "product": "QuickBar Pro",
+  "platform": "After Effects",
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-22",
+  "price": {
+    "INR": 100,
+    "USD": 2
+  },
+  "status": "available",
+  "description": "The all-in-one After Effects extension for motion designers. 100+ tools across 15 tabs.",
+  "tabs": [
+    "Main",
+    "FX & Shakes",
+    "Color",
+    "AI Text",
+    "QuickFlow",
+    "Fonts",
+    "Time Tracker",
+    "Expressions",
+    "Presets",
+    "Assets",
+    "Layers",
+    "Graph",
+    "Typography",
+    "Utilities",
+    "Settings"
+  ],
+  "features": [
+    {
+      "name": "Alignment Tools",
+      "description": "One-click layer alignment with anchor point grid",
+      "category": "main"
+    },
+    {
+      "name": "Quick Create",
+      "description": "Create shape, text, null, camera, light, adjustment layers instantly",
+      "category": "main"
+    },
+    {
+      "name": "Trim Pack",
+      "description": "Trim in/out points with keyboard shortcuts",
+      "category": "main"
+    },
+    {
+      "name": "FX & Shakes",
+      "description": "80+ effect presets including glow, glitch, camera shake, liquid glass",
+      "category": "effects"
+    },
+    {
+      "name": "Color System",
+      "description": "Color palettes, extraction, and grading tools",
+      "category": "color"
+    },
+    {
+      "name": "AI Text Rewrite",
+      "description": "Rewrite and translate text layers with AI",
+      "category": "ai"
+    },
+    {
+      "name": "QuickFlow Graph Editor",
+      "description": "Bezier curve editor for precise keyframe control",
+      "category": "animation"
+    },
+    {
+      "name": "Font Manager",
+      "description": "Detect and replace fonts across compositions",
+      "category": "typography"
+    },
+    {
+      "name": "Expression Library",
+      "description": "One-click apply expressions to layers",
+      "category": "expressions"
+    },
+    {
+      "name": "Session Time Tracker",
+      "description": "Track editing sessions, streaks, and focus time",
+      "category": "productivity"
+    }
+  ],
+  "compatibility": {
+    "os": ["macOS", "windows"],
+    "afterEffects": ["CC 2019", "CC 2020", "CC 2021", "CC 2022", "CC 2023", "CC 2024", "CC 2025"],
+    "panelType": "CEP"
+  },
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-22",
+      "changes": [
+        "Initial release",
+        "100+ tools across 15 tabs",
+        "QuickFlow graph editor",
+        "AI text rewrite",
+        "Session time tracker"
+      ]
+    }
+  ]
+}

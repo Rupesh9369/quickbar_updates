@@ -92,7 +92,36 @@
     .footer a { color: #71717a; transition: color 0.2s; }
     .footer a:hover { color: #f5f5f5; }
 
+    /* Product Cards */
+    .products { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .product-card {
+      background: #111; border: 1px solid #1e1e1e; border-radius: 14px; padding: 28px;
+      text-decoration: none; transition: all 0.25s ease; display: flex; flex-direction: column;
+    }
+    .product-card:hover { border-color: #dcf900; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(220,249,0,0.06); }
+    .product-icon {
+      width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; font-family: 'JetBrains Mono', monospace; margin-bottom: 16px; color: #fff;
+    }
+    .product-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: #f5f5f5; }
+    .product-card .platform { font-size: 12px; color: #71717a; margin-bottom: 10px; }
+    .product-card .desc { font-size: 13px; color: #a1a1aa; line-height: 1.6; flex: 1; margin-bottom: 16px; }
+    .product-card .price { font-size: 22px; font-weight: 800; color: #dcf900; margin-bottom: 4px; }
+    .product-card .price-note { font-size: 11px; color: #52525b; }
+    .product-badge {
+      display: inline-flex; padding: 3px 8px; border-radius: 100px; font-size: 10px; font-weight: 600;
+      margin-bottom: 12px; width: fit-content;
+    }
+    .badge-available { background: rgba(220,249,0,0.1); color: #dcf900; border: 1px solid rgba(220,249,0,0.2); }
+    .badge-prebook { background: rgba(147,130,255,0.1); color: #9382ff; border: 1px solid rgba(147,130,255,0.2); }
+    .json-link {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; font-weight: 600;
+      color: #71717a; transition: color 0.2s;
+    }
+    .json-link:hover { color: #dcf900; }
+
     @media (max-width: 640px) {
+      .products { grid-template-columns: 1fr; }
       .update-version { display: none; }
     }
   </style>
@@ -116,6 +145,39 @@
       <p>Changelog, features, fixes, and improvements for QuickBar Pro.</p>
     </div>
   </section>
+
+  <!-- Product Cards -->
+  <div class="container">
+    <div class="products">
+      <a href="ae-plugin.json" target="_blank" class="product-card" title="Open QuickBar Pro (After Effects) JSON">
+        <div class="product-badge badge-available">Available Now</div>
+        <div class="product-icon" style="background:#9999ff;">Ae</div>
+        <h3>QuickBar Pro</h3>
+        <div class="platform">After Effects Extension</div>
+        <div class="desc">100+ tools across 15 tabs. Alignment, animation, color, AI text, expressions, graph editing, and more.</div>
+        <div class="price">₹100</div>
+        <div class="price-note">INR · One-time · Lifetime</div>
+        <div class="json-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View ae-plugin.json →
+        </div>
+      </a>
+
+      <a href="pr-plugin.json" target="_blank" class="product-card" title="Open Quick PR Pro (Premiere Pro) JSON">
+        <div class="product-badge badge-prebook">Pre-book Now</div>
+        <div class="product-icon" style="background:#9999ff;">Pr</div>
+        <h3>Quick PR Pro</h3>
+        <div class="platform">Premiere Pro Extension</div>
+        <div class="desc">Silence remover, auto cut, shared canvas, graph editor, nest saver, auto captions, and 50+ tools.</div>
+        <div class="price">₹100</div>
+        <div class="price-note">INR · One-time · Lifetime</div>
+        <div class="json-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View pr-plugin.json →
+        </div>
+      </a>
+    </div>
+  </div>
 
   <!-- Filters -->
   <div class="container">

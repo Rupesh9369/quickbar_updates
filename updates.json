@@ -1,7 +1,19 @@
 {
   "product": "QuickBar Pro",
-  "lastUpdated": "2026-07-22",
+  "lastUpdated": "2026-07-28",
   "updates": [
+    {
+      "tag": "improvement",
+      "title": "Pricing Updated to ₹100 INR",
+      "description": "Razorpay now charges ₹100 INR. PayPal remains $2 USD for international users.",
+      "date": "2026-07-28",
+      "version": "1.0.1",
+      "items": [
+        "Razorpay: ₹100 INR",
+        "PayPal: $2 USD",
+        "Same lifetime access and features"
+      ]
+    },
     {
       "tag": "new",
       "title": "Quick PR Pro for Premiere Pro",

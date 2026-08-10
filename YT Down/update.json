@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "message": "YT Downloader v1 is now available!",
+  "link": "https://www.google.com/search?q=yt+downloader&ie=UTF-8",
+  "force_update": false,
+  "btnText": "Download",
+  "btnLink": "https://www.google.com/search?q=yt+downloader&ie=UTF-8"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "v1.0.0",
+  "version": "1.0.0",
+  "title": "What's New in EasyComposer v1.0.0",
+  "changelog": "✨ Features\n\n- Store custom assets: Audio, Video, and PSD files\n- View multiple live previews of PNGs and videos",
+  "btnText": "Got it!",
+  "btnLink": ""
+}
